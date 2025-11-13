@@ -1,0 +1,27 @@
+name: 'linear-actions'
+description: 'Interact with Linear issues from GitHub Actions workflows'
+author: 'linear-actions maintainers'
+inputs:
+  api-key:
+    description: 'Linear API key'
+    required: true
+  issue-key:
+    description: 'Linear issue key, e.g. ABC-123'
+    required: true
+  body:
+    description: 'Comment body to post to Linear'
+    required: true
+  dedupe:
+    description: 'Skip posting if identical comment already exists'
+    required: false
+    default: 'true'
+  command:
+    description: 'Command to execute (currently only "comment")'
+    required: false
+    default: 'comment'
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
+branding:
+  icon: 'message-circle'
+  color: 'purple'
